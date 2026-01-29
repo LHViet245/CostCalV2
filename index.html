@@ -2,9 +2,24 @@
 <html lang="vi">
 
 <head>
+  <!-- Google Analytics 4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-YOUR_ID_HERE"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-YOUR_ID_HERE');
+  </script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>Tính Giá Nhanh</title>
+  <title>Tính Giá Nhanh - CostCal</title>
+  <meta name="description"
+    content="Ứng dụng tính giá bán, lợi nhuận và chi phí sàn (Shopee, Grab) nhanh chóng cho chủ shop. Tối ưu cho điện thoại.">
+  <meta property="og:title" content="Tính Giá Nhanh - CostCal">
+  <meta property="og:description" content="Công cụ tính giá bán & lợi nhuận siêu tốc cho chủ shop online/offline.">
+  <meta property="og:image" content="./vite.svg">
+  <meta property="og:type" content="website">
+  <link rel="icon" type="image/svg+xml" href="./vite.svg">
   <link rel="stylesheet" href="./src/css/style.css">
 </head>
 
@@ -54,6 +69,12 @@
         <button id="clear-btn" class="secondary-btn">Xóa / Nhập Lại</button>
       </div>
     </main>
+
+    <!-- Footer -->
+    <footer style="text-align: center; margin-top: 2rem; padding: 1rem; font-size: 0.8rem; opacity: 0.7;">
+      <a href="./public/privacy.html" style="color: inherit; text-decoration: none; margin: 0 0.5rem;">Bảo mật</a> |
+      <a href="./public/terms.html" style="color: inherit; text-decoration: none; margin: 0 0.5rem;">Điều khoản</a>
+    </footer>
 
     <!-- Settings Modal -->
     <div id="settings-modal" class="modal">

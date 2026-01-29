@@ -6,7 +6,7 @@
     "project": {
         "name": "CostCal - Tính Giá Nhanh",
         "type": "Web App (Mobile-first)",
-        "status": "Production-ready (v1.0)"
+        "status": "Hosted on GitHub (v1.0)"
     },
     "tech_stack": {
         "frontend": "Vanilla JS, CSS3, Vite",

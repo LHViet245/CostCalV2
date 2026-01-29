@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Tính Giá Nhanh</title>
+  <link rel="stylesheet" href="./src/css/style.css">
+</head>
+
+<body>
+  <div id="app">
+    <!-- Header -->
+    <header class="header">
+      <h1>Tính Giá Nhanh</h1>
+      <button id="settings-btn" class="icon-btn" aria-label="Cài đặt">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+          stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path
+            d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z" />
+          <circle cx="12" cy="12" r="3" />
+        </svg>
+      </button>
+    </header>
+
+    <main class="content">
+      <!-- Calculator UI will be injected here or hardcoded -->
+      <div class="calculator-card">
+        <div class="input-group">
+          <label for="cost-input">Giá Vốn (VNĐ)</label>
+          <input type="tel" id="cost-input" placeholder="0" autocomplete="off">
+        </div>
+
+        <div class="channel-tabs">
+          <button class="channel-btn active" data-channel="store">TẠI QUÁN</button>
+          <button class="channel-btn" data-channel="grab">GRAB</button>
+          <button class="channel-btn" data-channel="shopee">SHOPEE</button>
+        </div>
+
+        <div class="discount-toggle">
+          <span>Mã giảm giá 20%</span>
+          <label class="switch">
+            <input type="checkbox" id="discount-toggle" checked>
+            <span class="slider"></span>
+          </label>
+        </div>
+
+        <div class="result-section">
+          <label>GIÁ BÁN GỢI Ý</label>
+          <div id="result-value" class="price-display">0 đ</div>
+          <div id="profit-estimate" class="profit-info">Lãi dự kiến: 0 đ</div>
+        </div>
+
+        <button id="clear-btn" class="secondary-btn">Xóa / Nhập Lại</button>
+      </div>
+    </main>
+
+    <!-- Settings Modal -->
+    <div id="settings-modal" class="modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2>Cài Đặt Chỉ Số</h2>
+          <button id="close-settings" class="icon-btn">✕</button>
+        </div>
+        <div class="settings-list">
+          <div class="setting-item">
+            <label>Lãi mong muốn (%)</label>
+            <input type="number" id="setting-profit" step="1">
+          </div>
+          <div class="setting-item">
+            <label>Phí đóng gói (VNĐ)</label>
+            <input type="number" id="setting-packaging" step="500">
+          </div>
+          <div class="setting-item">
+            <label>Phí Grab (%)</label>
+            <input type="number" id="setting-grab" step="0.5">
+          </div>
+          <div class="setting-item">
+            <label>Phí Shopee (%)</label>
+            <input type="number" id="setting-shopee" step="0.5">
+          </div>
+          <div class="setting-item">
+            <label>Rủi ro & Thuế (%)</label>
+            <div class="helper-text">Mặc định 6.5% (5% rủi ro + 1.5% thuế)</div>
+            <input type="number" id="setting-tax-risk" step="0.1">
+          </div>
+        </div>
+        <div class="modal-actions">
+          <button id="reset-settings" class="secondary-btn">Khôi phục mặc định</button>
+          <button id="save-settings" class="primary-btn">Lưu & Đóng</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script type="module" src="./main.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,50 @@
+{
+    "meta": {
+        "schema_version": "1.1.0",
+        "awf_version": "3.3.0"
+    },
+    "project": {
+        "name": "CostCal - Tính Giá Nhanh",
+        "type": "Web App (Mobile-first)",
+        "status": "Production-ready (v1.0)"
+    },
+    "tech_stack": {
+        "frontend": "Vanilla JS, CSS3, Vite",
+        "tooling": "Vite v7",
+        "deployment": "Localhost (Node.js)"
+    },
+    "business_rules": [
+        {
+            "rule": "Lợi nhuận mục tiêu",
+            "value": "Mặc định 30% trên giá vốn",
+            "explained": "Sử dụng công thức tính giá bán dựa trên tỷ lệ lợi nhuận mong muốn sau khi trừ mọi chi phí."
+        },
+        {
+            "rule": "Làm tròn tiền",
+            "value": "Lên 500đ gần nhất",
+            "explained": "Đảm bảo giá bán thực tế luôn cao hơn hoặc bằng giá tính toán để bảo vệ biên lợi nhuận."
+        },
+        {
+            "rule": "Thuế và rủi ro",
+            "value": "1.5% Thuế + 5% Rủi ro",
+            "explained": "Phí ẩn để bù đắp các đơn hàng lỗi, hỏng hoặc thuế TNCN."
+        }
+    ],
+    "pricing_formula": {
+        "store": "Price = (Cost + Packaging) / (1 - (Profit% + Tax% + Risk%) - Discount%)",
+        "marketplace": "Price = (Cost + Packaging) / (1 - (Fee% + Profit% + Tax% + Risk%) - Discount%)"
+    },
+    "knowledge_items": {
+        "gotchas": [
+            {
+                "issue": "Vietnamese Number Format",
+                "fix": "Remove dot (.) as thousand separator before parseFloat in JS.",
+                "file": "src/js/utils.js"
+            }
+        ],
+        "conventions": [
+            "Mobile-first design optimized for iPhone 11 viewport.",
+            "Large UI elements for low-tech/elderly usability."
+        ]
+    }
+}

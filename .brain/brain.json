@@ -6,12 +6,12 @@
     "project": {
         "name": "CostCal - Tính Giá Nhanh",
         "type": "Web App (Mobile-first)",
-        "status": "Hosted on GitHub (v1.0)"
+        "status": "Live on Vercel (v1.0)"
     },
     "tech_stack": {
         "frontend": "Vanilla JS, CSS3, Vite",
         "tooling": "Vite v7",
-        "deployment": "Localhost (Node.js)"
+        "deployment": "Vercel (Static)"
     },
     "business_rules": [
         {
@@ -40,6 +40,11 @@
                 "issue": "Vietnamese Number Format",
                 "fix": "Remove dot (.) as thousand separator before parseFloat in JS.",
                 "file": "src/js/utils.js"
+            },
+            {
+                "issue": "Visible GA4 ID",
+                "fix": "GA4 Measurement ID is public by design. Use filters in GA Admin to prevent data pollution if needed.",
+                "file": "index.html"
             }
         ],
         "conventions": [

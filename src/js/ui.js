@@ -56,6 +56,7 @@ export class UIManager {
                 this.channelBtns.forEach(b => b.classList.remove('active'));
                 btn.classList.add('active');
                 this.currentChannel = btn.dataset.channel;
+                this.updateDiscountState();
                 this.updateResult();
             });
         });
@@ -78,7 +79,18 @@ export class UIManager {
         this.resetSettingsBtn.addEventListener('click', () => this.resetSettings());
 
         // Sync local toggle state with saved settings
-        this.discountToggle.checked = this.sm.get('has_discount');
+        this.updateDiscountState();
+    }
+
+    updateDiscountState() {
+        if (this.currentChannel === 'store') {
+            this.discountToggle.checked = false;
+            this.discountToggle.disabled = true;
+            this.sm.save({ has_discount: false });
+        } else {
+            this.discountToggle.disabled = false;
+            this.discountToggle.checked = this.sm.get('has_discount');
+        }
     }
 
     updateResult() {

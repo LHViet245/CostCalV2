@@ -43,7 +43,7 @@
       <div class="calculator-card">
         <div class="input-group">
           <label for="cost-input">Giá Vốn (VNĐ)</label>
-          <input type="tel" id="cost-input" placeholder="0" autocomplete="off">
+          <input type="tel" id="cost-input" placeholder="0" autocomplete="off" inputmode="decimal">
         </div>
 
         <div class="channel-tabs">
@@ -86,24 +86,24 @@
         <div class="settings-list">
           <div class="setting-item">
             <label>Lãi mong muốn (%)</label>
-            <input type="number" id="setting-profit" step="1">
+            <input type="number" id="setting-profit" step="1" inputmode="decimal">
           </div>
           <div class="setting-item">
             <label>Phí đóng gói (VNĐ)</label>
-            <input type="number" id="setting-packaging" step="500">
+            <input type="number" id="setting-packaging" step="500" inputmode="decimal">
           </div>
           <div class="setting-item">
             <label>Phí Grab (%)</label>
-            <input type="number" id="setting-grab" step="0.5">
+            <input type="number" id="setting-grab" step="0.5" inputmode="decimal">
           </div>
           <div class="setting-item">
             <label>Phí Shopee (%)</label>
-            <input type="number" id="setting-shopee" step="0.5">
+            <input type="number" id="setting-shopee" step="0.5" inputmode="decimal">
           </div>
           <div class="setting-item">
             <label>Rủi ro & Thuế (%)</label>
             <div class="helper-text">Mặc định 6.5% (5% rủi ro + 1.5% thuế)</div>
-            <input type="number" id="setting-tax-risk" step="0.1">
+            <input type="number" id="setting-tax-risk" step="0.1" inputmode="decimal">
           </div>
         </div>
         <div class="modal-actions">

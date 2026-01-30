@@ -13,7 +13,8 @@ export function formatCurrency(value) {
 export function cleanNumber(str) {
     if (!str) return 0;
     // Xóa tất cả dấu chấm (hàng nghìn) và các ký tự không phải số
-    return parseFloat(str.toString().replace(/\./g, "").replace(/[^0-9.-]+/g, ""));
+    const res = parseFloat(str.toString().replace(/\./g, "").replace(/[^0-9.-]+/g, ""));
+    return isNaN(res) ? 0 : res;
 }
 
 /**

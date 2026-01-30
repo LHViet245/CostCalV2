@@ -89,7 +89,8 @@ export class UIManager {
             this.sm.save({ has_discount: false });
         } else {
             this.discountToggle.disabled = false;
-            this.discountToggle.checked = this.sm.get('has_discount');
+            this.discountToggle.checked = true; // Force auto-enable
+            this.sm.save({ has_discount: true }); // Always save as true for these channels
         }
     }
 

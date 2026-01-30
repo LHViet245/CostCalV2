@@ -25,9 +25,9 @@
             "explained": "Đảm bảo giá bán thực tế luôn cao hơn hoặc bằng giá tính toán để bảo vệ biên lợi nhuận."
         },
         {
-            "rule": "Thuế và rủi ro",
-            "value": "1.5% Thuế + 5% Rủi ro",
-            "explained": "Phí ẩn để bù đắp các đơn hàng lỗi, hỏng hoặc thuế TNCN."
+            "rule": "Ràng buộc giảm giá",
+            "value": "Chỉ áp dụng Grab/Shopee",
+            "explained": "Tự động tắt và khóa chức năng giảm giá khi chọn Tại Quán để tránh sai sót."
         }
     ],
     "pricing_formula": {

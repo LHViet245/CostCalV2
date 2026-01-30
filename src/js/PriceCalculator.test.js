@@ -14,7 +14,8 @@ describe('PriceCalculator', () => {
                 profit_margin: 30,
                 packaging_cost: 5000,
                 risk_percent: 5,
-                tax_percent: 1.5,
+                tax_gtgt_percent: 1,
+                tax_tncn_percent: 0.5,
                 fee_grab: 25,
                 fee_shopee: 15,
                 has_discount: true,
@@ -55,7 +56,8 @@ describe('PriceCalculator', () => {
             profit_margin: 10,
             packaging_cost: 0,
             risk_percent: 50,
-            tax_percent: 10,
+            tax_gtgt_percent: 5,
+            tax_tncn_percent: 5,
             fee_grab: 50, // Total > 100
             has_discount: false,
             discount_percent: 0,
@@ -63,10 +65,38 @@ describe('PriceCalculator', () => {
         });
 
         const price = pc.calculateSellingPrice(10000, 'grab');
-        expect(price).toBe(-1);
+        expect(price).toBe(null);
     });
 
     it('should handle 0 cost', () => {
         expect(pc.calculateSellingPrice(0, 'store')).toBe(0);
+    });
+
+    it('should match manual verification scenario', () => {
+        // Input Cost: 100,000
+        // Store Channel (No fee)
+        // Profit: 30% (30,000)
+        // Tax GTGT: 1%
+        // Tax TNCN: 0.5%
+        // Risk: 5%
+        // Discount: 0 (disabled)
+        // Packaging: 5000
+        // Total Fee = 1 + 0.5 + 5 = 6.5%
+        // Price = (100k + 5k pkg + 30k profit) / (1 - 0.065) = 135k / 0.935 = 144,385.02
+        // Round Up 500 -> 144,500
+        mockSettings.getAll = () => ({
+            profit_margin: 30,
+            packaging_cost: 5000,
+            risk_percent: 5,
+            tax_gtgt_percent: 1,
+            tax_tncn_percent: 0.5,
+            fee_grab: 25,
+            has_discount: false,
+            discount_percent: 20,
+            ads_fee: 0
+        });
+
+        const price = pc.calculateSellingPrice(100000, 'store');
+        expect(price).toBe(144500);
     });
 });

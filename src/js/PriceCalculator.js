@@ -23,10 +23,10 @@ export class PriceCalculator {
 
         // 2. Tổng % trích từ doanh thu (Phí + Thuế + Rủi ro + Khuyến mãi + Ads)
         const discount = s.has_discount ? s.discount_percent : 0;
-        const totalFeePercent = (channelFee + s.risk_percent + s.tax_percent + discount + s.ads_fee) / 100;
+        const totalFeePercent = (channelFee + s.risk_percent + s.tax_gtgt_percent + s.tax_tncn_percent + discount + s.ads_fee) / 100;
 
         // Nếu phí > 100% thì không thể tính (lỗ chắc chắn)
-        if (totalFeePercent >= 1) return -1;
+        if (totalFeePercent >= 1) return null;
 
         // 3. Số tiền cần thu về (Giá vốn + Phí đóng gói + Lãi mong muốn)
         const profitAmount = costPrice * (s.profit_margin / 100);
@@ -51,7 +51,7 @@ export class PriceCalculator {
         else if (channel === 'shopee') channelFee = s.fee_shopee;
 
         const discount = s.has_discount ? s.discount_percent : 0;
-        const feesAmount = sellingPrice * ((channelFee + s.risk_percent + s.tax_percent + discount + s.ads_fee) / 100);
+        const feesAmount = sellingPrice * ((channelFee + s.risk_percent + s.tax_gtgt_percent + s.tax_tncn_percent + discount + s.ads_fee) / 100);
 
         return sellingPrice - feesAmount - costPrice - s.packaging_cost;
     }

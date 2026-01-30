@@ -122,7 +122,7 @@ export class UIManager {
 
         const price = this.calculator.calculateSellingPrice(cost, this.currentChannel);
 
-        if (price === -1) {
+        if (price === null) {
             this.resultValue.innerText = 'HẾT LÃI!';
             this.resultValue.style.color = 'red';
             this.profitEstimate.innerText = 'Phí quá cao!';
@@ -142,7 +142,9 @@ export class UIManager {
         document.getElementById('setting-packaging').value = s.packaging_cost;
         document.getElementById('setting-grab').value = s.fee_grab;
         document.getElementById('setting-shopee').value = s.fee_shopee;
-        document.getElementById('setting-tax-risk').value = s.risk_percent + s.tax_percent;
+        document.getElementById('setting-tax-gtgt').value = s.tax_gtgt_percent;
+        document.getElementById('setting-tax-tncn').value = s.tax_tncn_percent;
+        document.getElementById('setting-risk').value = s.risk_percent;
 
         this.settingsModal.classList.add('active');
     }
@@ -152,15 +154,14 @@ export class UIManager {
     }
 
     saveSettings() {
-        const trTotal = parseFloat(document.getElementById('setting-tax-risk').value);
-        // Split back to 1.5 tax and rest risk if needed, or just simplify logic
         const newSettings = {
             profit_margin: parseFloat(document.getElementById('setting-profit').value),
             packaging_cost: parseFloat(document.getElementById('setting-packaging').value),
             fee_grab: parseFloat(document.getElementById('setting-grab').value),
             fee_shopee: parseFloat(document.getElementById('setting-shopee').value),
-            tax_percent: 1.5, // keep fixed for simplicity as requested "Tax 1% + 0.5% TNCN"
-            risk_percent: Math.max(0, trTotal - 1.5)
+            tax_gtgt_percent: parseFloat(document.getElementById('setting-tax-gtgt').value),
+            tax_tncn_percent: parseFloat(document.getElementById('setting-tax-tncn').value),
+            risk_percent: parseFloat(document.getElementById('setting-risk').value)
         };
 
         this.sm.save(newSettings);

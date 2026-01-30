@@ -8,7 +8,8 @@ export class SettingsManager {
             profit_margin: 30,      // % Lãi trên giá vốn
             packaging_cost: 5000,   // VNĐ
             risk_percent: 5,        // % Rủi ro
-            tax_percent: 1.5,       // % Thuế khoán (1% GTGT + 0.5% TNCN)
+            tax_gtgt_percent: 1,    // % Thuế GTGT
+            tax_tncn_percent: 0.5,  // % Thuế TNCN
             fee_grab: 25,           // % Phí Grab
             fee_shopee: 15,         // % Phí Shopee
             has_discount: true,     // Mặc định có mã giảm giá

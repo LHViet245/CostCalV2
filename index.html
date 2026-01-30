@@ -43,7 +43,10 @@
       <div class="calculator-card">
         <div class="input-group">
           <label for="cost-input">Giá Vốn (VNĐ)</label>
-          <input type="tel" id="cost-input" placeholder="0" autocomplete="off" inputmode="decimal">
+          <div class="input-wrapper">
+            <input type="tel" id="cost-input" placeholder="0" autocomplete="off" inputmode="decimal">
+            <button id="clear-cost-input" class="clear-input-btn" aria-label="Xóa">✕</button>
+          </div>
         </div>
 
         <div class="channel-tabs">

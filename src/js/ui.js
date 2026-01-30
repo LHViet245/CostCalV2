@@ -15,6 +15,7 @@ export class UIManager {
         this.resultValue = document.getElementById('result-value');
         this.profitEstimate = document.getElementById('profit-estimate');
         this.clearBtn = document.getElementById('clear-btn');
+        this.clearCostBtn = document.getElementById('clear-cost-input');
 
         // Settings Elements
         this.settingsBtn = document.getElementById('settings-btn');
@@ -48,7 +49,15 @@ export class UIManager {
             } else {
                 e.target.value = '';
             }
+            this.updateClearCostBtnVisibility();
             this.updateResult();
+        });
+
+        this.clearCostBtn.addEventListener('click', () => {
+            this.costInput.value = '';
+            this.updateClearCostBtnVisibility();
+            this.updateResult();
+            this.costInput.focus();
         });
 
         this.channelBtns.forEach(btn => {
@@ -80,6 +89,15 @@ export class UIManager {
 
         // Sync local toggle state with saved settings
         this.updateDiscountState();
+        this.updateClearCostBtnVisibility();
+    }
+
+    updateClearCostBtnVisibility() {
+        if (this.costInput.value.length > 0) {
+            this.clearCostBtn.style.display = 'block';
+        } else {
+            this.clearCostBtn.style.display = 'none';
+        }
     }
 
     updateDiscountState() {

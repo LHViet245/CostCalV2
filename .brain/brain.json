@@ -28,6 +28,11 @@
             "rule": "Ràng buộc giảm giá",
             "value": "Chỉ áp dụng Grab/Shopee",
             "explained": "Tự động tắt và khóa chức năng giảm giá khi chọn Tại Quán để tránh sai sót."
+        },
+        {
+            "rule": "Nút xóa nhanh",
+            "value": "✕ trong ô Giá vốn",
+            "explained": "Xuất hiện khi có dữ liệu, giúp người dùng xóa nhanh giá trị cũ bằng 1 chạm."
         }
     ],
     "pricing_formula": {
